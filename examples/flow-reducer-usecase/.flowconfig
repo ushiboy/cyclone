@@ -1,0 +1,13 @@
+[ignore]
+.*/node_modules/.*
+
+[include]
+
+[libs]
+../../cyclone.js.flow
+
+[lints]
+
+[options]
+
+[strict]

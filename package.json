@@ -1,0 +1,37 @@
+{
+  "name": "cyclone",
+  "version": "0.1.0",
+  "description": "",
+  "main": "lib/cyclone.js",
+  "files": [
+    "src",
+    "lib"
+  ],
+  "scripts": {
+    "lint": "eslint src",
+    "check": "npm run format && npm run lint && npm test",
+    "format": "prettier --single-quote --write 'src/**/*.js'",
+    "test": "mocha --require src/testSetup.js --recursive './src/**/*.spec.js'",
+    "clean": "rm -rf lib",
+    "build": "npm run clean && babel src --ignore 'src/**/*.spec.js' --ignore 'src/testSetup.js' --out-dir lib"
+  },
+  "author": "ushiboy",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-preset-power-assert": "^3.0.0",
+    "eslint": "^5.14.1",
+    "mocha": "^6.0.1",
+    "power-assert": "^1.6.1",
+    "prettier": "^1.16.4",
+    "sinon": "^7.2.4"
+  },
+  "peerDependencies": {
+    "@babel/polyfill": "^7.2.0"
+  }
+}

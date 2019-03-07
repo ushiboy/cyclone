@@ -1,0 +1,14 @@
+{
+  "name": "simple-promise-usecase",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "ushiboy",
+  "license": "MIT",
+  "dependencies": {
+    "cyclone": "file:../.."
+  }
+}
