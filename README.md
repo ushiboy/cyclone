@@ -35,3 +35,20 @@ store.dispatch({ type: 'increment' });
 store.dispatch({ type: 'increment' });
 store.dispatch({ type: 'decrement' });
 ```
+
+## Main Concept
+
+* State: the state of your application.
+* Action: the instructions for changing state.
+* Update: the processing function that receives State and Action and returns the next State and Action.
+* Store: it is initialized with State and Update, receives Action and updates State and notifies.
+
+### State
+
+The objects with keys and values.
+
+```javascript
+type State = {
+  [string]: any
+};
+```
