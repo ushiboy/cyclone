@@ -47,8 +47,49 @@ store.dispatch({ type: 'decrement' });
 
 The objects with keys and values.
 
-```javascript
+```
 type State = {
-  [string]: any
+  [stateName: string]: any;
 };
+```
+
+### Action
+
+The objects with `type` property.
+
+```
+type Action = {
+  type: string
+};
+```
+
+### Update
+
+The function that takes `State` and` Action` as arguments and returns updated `State` and next ` Action`.
+
+```
+type Update<S, A> = (state: S, action: A) => [S, A];
+```
+
+### Store
+
+Notify of change of `State` by `Action`.
+
+```
+type Store<S, A> = {
+  dispatch(action: A | Promise<A>): Promise<void>,
+  getState(): S,
+  subscribe(listener: () => void): void,
+  unsubscribe(listener: () => void): void
+};
+```
+
+## API
+
+### createStore
+
+Create and return a `Store` from the initial state and `Update` function.
+
+```
+createStore<S, A>(initialState: S, update: Update<S, A>): Store<S, A>
 ```
