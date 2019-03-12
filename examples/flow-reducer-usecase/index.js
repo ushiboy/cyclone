@@ -1,5 +1,5 @@
 // @flow
-const { createStore, combine, reducer, none } = require('cyclone');
+const { createStore, combine, reducer, none } = require('@ushiboy/cyclone');
 
 type State = {
   a: number,

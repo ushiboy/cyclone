@@ -1,5 +1,5 @@
 require('@babel/polyfill');
-const { createStore, none } = require('cyclone');
+const { createStore, none } = require('@ushiboy/cyclone');
 
 const store = createStore({ count: 0 }, (state, action) => {
   switch (action.type) {

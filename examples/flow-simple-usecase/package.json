@@ -9,6 +9,6 @@
   "author": "ushiboy",
   "license": "MIT",
   "dependencies": {
-    "cyclone": "file:../.."
+    "@ushiboy/cyclone": "file:../.."
   }
 }

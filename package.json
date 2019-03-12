@@ -1,11 +1,13 @@
 {
-  "name": "cyclone",
+  "name": "@ushiboy/cyclone",
   "version": "0.1.0",
-  "description": "",
+  "description": "Application state management library",
   "main": "lib/cyclone.js",
+  "repository": "https://github.com/ushiboy/cyclone",
   "files": [
     "src",
-    "lib"
+    "lib",
+    "cyclone.js.flow"
   ],
   "scripts": {
     "lint": "eslint src",
@@ -13,7 +15,8 @@
     "format": "prettier --single-quote --write 'src/**/*.js'",
     "test": "mocha --require src/testSetup.js --recursive './src/**/*.spec.js'",
     "clean": "rm -rf lib",
-    "build": "npm run clean && babel src --ignore 'src/**/*.spec.js' --ignore 'src/testSetup.js' --out-dir lib"
+    "build": "npm run clean && babel src --ignore 'src/**/*.spec.js' --ignore 'src/testSetup.js' --out-dir lib",
+    "prepublish": "npm run check && npm run build"
   },
   "author": "ushiboy",
   "license": "MIT",

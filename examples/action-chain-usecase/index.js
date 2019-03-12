@@ -1,5 +1,5 @@
 require('@babel/polyfill');
-const { createStore, none } = require('cyclone');
+const { createStore, none } = require('@ushiboy/cyclone');
 
 const sleep = time => {
   return new Promise(resolve => {

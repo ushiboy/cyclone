@@ -1,5 +1,5 @@
 // @flow
-declare module 'cyclone' {
+declare module '@ushiboy/cyclone' {
 
   declare export type Action = $Shape<{ type: string }>;
   declare export type NoneAction = { type: 'cyclone$none' };
