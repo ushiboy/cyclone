@@ -1,5 +1,5 @@
 // @flow
-const { createStore, none } = require('cyclone');
+const { createStore, none } = require('@ushiboy/cyclone');
 
 type State = {
   count: number,

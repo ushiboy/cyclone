@@ -114,25 +114,25 @@ describe('cyclone', function() {
         reducer('a', (s, a) => {
           switch (a.type) {
             case 'next': {
-              return [s + 1, none()]
+              return [s + 1, none()];
             }
             default: {
-              return [s, none()]
+              return [s, none()];
             }
           }
         }),
         reducer('b', (s, a) => {
           switch (a.type) {
             case 'add': {
-              return [s + 1, next()]
+              return [s + 1, next()];
             }
             default: {
-              return [s, none()]
+              return [s, none()];
             }
           }
         }),
         reducer('c', ['b'], (s, a, b) => {
-          return [s + b, none()]
+          return [s + b, none()];
         })
       );
       const add = async () => {

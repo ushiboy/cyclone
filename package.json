@@ -1,12 +1,13 @@
 {
-  "name": "cyclone",
+  "name": "@ushiboy/cyclone",
   "version": "0.1.0",
   "description": "Application state management library",
   "main": "lib/cyclone.js",
   "repository": "https://github.com/ushiboy/cyclone",
   "files": [
     "src",
-    "lib"
+    "lib",
+    "cyclone.js.flow"
   ],
   "scripts": {
     "lint": "eslint src",

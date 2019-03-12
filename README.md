@@ -7,7 +7,7 @@ Cyclone is an application state management library.
 Here is a simple counter.
 
 ```javascript
-import { createStore, none } from 'cyclone';
+import { createStore, none } from '@ushiboy/cyclone';
 
 const initialState = { count: 0 };
 
@@ -104,7 +104,7 @@ reducer<RS, A>(stateName: string, update: ReducerUpdate<RS, A>): ReducerConfig<R
 reducer<RS, A>(stateName: string, dependencies: string[], update: ReducerUpdate<RS, A>): ReducerConfig<RS, A>
 ```
 
-It returns a` ReducerConfig` object.
+It returns a `ReducerConfig` object.
 If you specify a list of depending `State` element names on the 2nd argument, it can be received after the 3rd argument of the `ReducerUpdate` function.
 
 ```javascript
@@ -176,7 +176,7 @@ unsubscribe(listener: () => void): void
 An example where three states are processed individually and one depends on the other two.
 
 ```javascript
-import { createStore, combine, reducer, none } from 'cyclone';
+import { createStore, combine, reducer, none } from '@ushiboy/cyclone';
 
 const store = createStore({ a: 0, b: 0, c: '' }, combine(
   reducer('a', (state, action) => {
@@ -226,7 +226,7 @@ store.dispatch({ type: 'sum' });               // { a: 1, b: 2, c: '3' }
 An example of waiting for 1 second and erasing the message after displaying the message.
 
 ```javascript
-import { createStore, none } from 'cyclone';
+import { createStore, none } from '@ushiboy/cyclone';
 
 const showMessage = () => ({ type: 'show' });
 
