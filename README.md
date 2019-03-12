@@ -1,5 +1,8 @@
 # Cyclone
 
+
+[![Build Status](https://travis-ci.org/ushiboy/cyclone.svg?branch=master)](https://travis-ci.org/ushiboy/cyclone)
+
 Cyclone is an application state management library.
 
 ## Quick Sample
