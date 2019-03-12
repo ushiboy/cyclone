@@ -258,3 +258,7 @@ store.subscribe(() => {
 
 store.dispatch(showMessage());
 ```
+
+## License
+
+MIT
