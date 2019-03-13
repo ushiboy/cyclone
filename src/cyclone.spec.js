@@ -99,6 +99,21 @@ describe('cyclone', function() {
           assert(spy.notCalled);
         });
       });
+      describe('extra argument', () => {
+        const action = () => extra => {
+          extra();
+          return { type: 'do' };
+        };
+        const update = (s, a) => {
+          return [s, none()];
+        };
+        it('should be passed to update', async () => {
+          const extra = sinon.spy();
+          const s = createStore({ a: 0 }, update, extra);
+          await s.dispatch(action());
+          assert(extra.calledOnce);
+        });
+      });
     });
     context('combined usage', () => {
       let s;
@@ -148,6 +163,37 @@ describe('cyclone', function() {
           assert(a === 1);
           assert(b === 2);
           assert(c === 6);
+        });
+      });
+      describe('extra argument', () => {
+        const action1 = () => extra => {
+          extra();
+          return { type: 'do' };
+        };
+        const action2 = () => extra => {
+          extra();
+          return { type: 'done' };
+        };
+        const update = combine(
+          reducer('b', (s, a) => {
+            return [s, none()];
+          }),
+          reducer('c', ['b'], (s, a, b) => {
+            switch (a.type) {
+              case 'do': {
+                return [s, action2()];
+              }
+              default: {
+                return [s, none()];
+              }
+            }
+          })
+        );
+        it('should be passed to update', async () => {
+          const extra = sinon.spy();
+          const s = createStore({ b: 0, c: 0 }, update, extra);
+          await s.dispatch(action1());
+          assert(extra.calledTwice);
         });
       });
     });
