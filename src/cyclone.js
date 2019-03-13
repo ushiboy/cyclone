@@ -1,11 +1,16 @@
 const NONE_ACTION = 'cyclone$none';
 
-export function createStore(initState, update) {
+export function createStore(initState, update, extra = null) {
   let state = { ...initState };
   const listeners = new Set();
 
   async function dispatch(action) {
     let a;
+
+    if (typeof action === 'function') {
+      action = action(extra);
+    }
+
     if (action instanceof Promise) {
       a = await action;
     } else {
