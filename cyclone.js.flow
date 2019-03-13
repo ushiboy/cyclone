@@ -3,11 +3,12 @@ declare module '@ushiboy/cyclone' {
 
   declare export type Action = $Shape<{ type: string }>;
   declare export type NoneAction = { type: 'cyclone$none' };
+  declare export type ExtraAction<A> = (extra: any) => A | Promise<A>;
 
   declare export function none(): NoneAction;
 
   declare export type Store<S, A> = {
-    dispatch(action: A | Promise<A>): Promise<void>,
+    dispatch(action: A | Promise<A> | ExtraAction<A>): Promise<void>,
     subscribe(listener: () => void): void,
     unsubscribe(listener: () => void): void,
     getState(): S
@@ -16,18 +17,19 @@ declare module '@ushiboy/cyclone' {
   declare export type Update<S, A> = (
     state: S,
     action: A
-  ) => [S, A | Promise<A> | NoneAction | Array<A | Promise<A> | NoneAction>];
+  ) => [S, A | Promise<A> | NoneAction | Array<A | Promise<A> | NoneAction | ExtraAction<A> >];
 
   declare export function createStore<S, A>(
     initState: S,
-    update: Update<S, A>
+    update: Update<S, A>,
+    extra?: any
   ): Store<S, A>;
 
   declare export type ReduceUpdate = (
     state: any,
     action: any,
     ...dependencyState: Array<any>
-  ) => [any, any | NoneAction];
+  ) => [any, any | NoneAction | ExtraAction<any>];
 
   declare export type ReducerConfig = {
     stateName: string,

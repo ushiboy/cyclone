@@ -262,6 +262,34 @@ store.subscribe(() => {
 store.dispatch(showMessage());
 ```
 
+## Advanced Usage
+
+### Extra Argument
+
+**(This feature is experimental. It may change in the future.)**
+
+If there is a parameter you want to inject into the action, set it to the 3rd argument of the `createStore` method.
+
+```javascript
+const store = createStore(initialState, update, { webApi: {...} });
+```
+
+The action can use it by returning a function that receives the injected parameter.
+
+```
+const fetchAction = () => async ({ webApi }) => {
+  const data = await webApi.fetch();
+  return {
+    type: 'fetch',
+    payload: {
+      data
+    }
+  };
+};
+
+store.dispatch(fetchAction());
+```
+
 ## License
 
 MIT
