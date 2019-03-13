@@ -276,7 +276,7 @@ const store = createStore(initialState, update, { webApi: {...} });
 
 The action can use it by returning a function that receives the injected parameter.
 
-```
+```javascript
 const fetchAction = () => async ({ webApi }) => {
   const data = await webApi.fetch();
   return {
