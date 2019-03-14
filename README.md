@@ -290,6 +290,16 @@ const fetchAction = () => async ({ webApi }) => {
 store.dispatch(fetchAction());
 ```
 
+## Change Log
+
+### 0.1.1
+
+Removed `@babel/polyfill` dependency.
+
+### 0.1.0
+
+Initial Cyclone release.
+
 ## License
 
 MIT

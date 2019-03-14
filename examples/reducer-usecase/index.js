@@ -1,4 +1,3 @@
-require('@babel/polyfill');
 const { createStore, combine, reducer, none } = require('@ushiboy/cyclone');
 
 const store = createStore({ a: 0, b: 0, c: '' }, combine(

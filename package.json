@@ -1,6 +1,6 @@
 {
   "name": "@ushiboy/cyclone",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Application state management library",
   "main": "lib/cyclone.js",
   "repository": "https://github.com/ushiboy/cyclone",
@@ -33,8 +33,5 @@
     "power-assert": "^1.6.1",
     "prettier": "^1.16.4",
     "sinon": "^7.2.4"
-  },
-  "peerDependencies": {
-    "@babel/polyfill": "^7.2.0"
   }
 }

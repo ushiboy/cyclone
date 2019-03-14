@@ -1,4 +1,3 @@
-require('@babel/polyfill');
 const { createStore, none } = require('@ushiboy/cyclone');
 
 const greet = () => async ({ sleep }) => {
