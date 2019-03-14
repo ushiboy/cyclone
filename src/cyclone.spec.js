@@ -80,6 +80,18 @@ describe('cyclone', function() {
         it('should update store', async () => {
           await s.dispatch(add());
           assert(s.getState().count === 1);
+          await s.dispatch({ type: 'add' });
+          assert(s.getState().count === 2);
+          await s.dispatch(() => ({ type: 'add' }));
+          assert(s.getState().count === 3);
+          await s.dispatch(() => add());
+          assert(s.getState().count === 4);
+        });
+        it('should return Promise<void>', async () => {
+          assert((await s.dispatch(add())) === undefined);
+          assert((await s.dispatch({ type: 'add' })) === undefined);
+          assert((await s.dispatch(() => ({ type: 'add' }))) === undefined);
+          assert((await s.dispatch(() => add())) === undefined);
         });
       });
       describe('subscribe()', () => {
