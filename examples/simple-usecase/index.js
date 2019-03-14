@@ -1,4 +1,3 @@
-require('@babel/polyfill');
 const { createStore, none } = require('@ushiboy/cyclone');
 
 const store = createStore({ count: 0 }, (state, action) => {
