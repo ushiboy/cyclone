@@ -82,7 +82,7 @@ Notify of change of `State` by `Action`.
 type Store<S, A> = {
   dispatch(action: A | Promise<A>): Promise<void>,
   getState(): S,
-  subscribe(listener: () => void): void,
+  subscribe(listener: () => void): () => void,
   unsubscribe(listener: () => void): void
 };
 ```
@@ -158,10 +158,12 @@ getState(): S
 
 #### subscribe
 
-It subscribes to the `Store` change notification.
+It subscribes to the `Store` change notification and returns `unsubscriber`.
+
+If you execute `unsubscriber`, It unsubscribes to the `Store` change notification.
 
 ```javascript
-subscribe(listener: () => void): void
+subscribe(listener: () => void): () => void
 ```
 
 #### unsubscribe
