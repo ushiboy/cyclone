@@ -101,6 +101,22 @@ describe('cyclone', function() {
           await s.dispatch(add());
           assert(spy.calledOnce);
         });
+        it('should return unsubscriber', async () => {
+          const spy = sinon.spy();
+          const unsubscriber = s.subscribe(spy);
+          assert(unsubscriber != null);
+        });
+        describe('unsubscriber', () => {
+          it('should unsubscribe for store', async () => {
+            const spy = sinon.spy();
+            const unsubscriber = s.subscribe(spy);
+            await s.dispatch(add());
+            assert(spy.calledOnce);
+            unsubscriber();
+            await s.dispatch(add());
+            assert(spy.calledOnce);
+          });
+        });
       });
       describe('unsubscribe()', () => {
         it('should unsubscribe for store', async () => {

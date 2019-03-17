@@ -39,6 +39,9 @@ export function createStore(initState, update, extra = null) {
 
   function subscribe(listener) {
     listeners.add(listener);
+    return () => {
+      listeners.delete(listener);
+    };
   }
 
   function unsubscribe(listener) {
