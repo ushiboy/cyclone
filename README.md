@@ -125,7 +125,7 @@ type ReducerUpdate<RS, A> = (state: RS, action: A, ...dependencyState: any[]) =>
 It receives multiple `ReducerConfig` objects, creates and returns a single `Update` function.
 
 ```javascript
-combine<S, A>(...partialConfig: ReducerConfig): Update<S, A>;
+combine<S, A>(...reducerConfig: ReducerConfig): Update<S, A>;
 ```
 
 ### none
@@ -293,6 +293,10 @@ store.dispatch(fetchAction());
 ```
 
 ## Change Log
+
+### 0.2.0
+
+Changed `subscribe` method to return `unsubscriber`.
 
 ### 0.1.1
 
