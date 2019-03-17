@@ -1,6 +1,6 @@
 {
   "name": "@ushiboy/cyclone",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Application state management library",
   "main": "lib/cyclone.js",
   "repository": "https://github.com/ushiboy/cyclone",
@@ -28,7 +28,7 @@
     "@babel/register": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-preset-power-assert": "^3.0.0",
-    "eslint": "^5.14.1",
+    "eslint": "^5.15.2",
     "mocha": "^6.0.1",
     "power-assert": "^1.6.1",
     "prettier": "^1.16.4",
